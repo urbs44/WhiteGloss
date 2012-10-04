@@ -1,0 +1,18 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "Error";
+    Layout = "_Main.cshtml";
+}
+
+<h2>
+    Sorry, an error occurred!
+</h2>
+<p>
+    Don't worry though, the proper authorities have been notified.
+</p>
+<p style="color:White">
+    Controller: @Model.ControllerName <br />
+    Action: @Model.ActionName <br />
+    Error Message: @Model.Exception
+</p>

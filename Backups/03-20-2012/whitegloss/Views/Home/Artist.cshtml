@@ -1,0 +1,119 @@
+﻿@model WhiteGloss.Models.ArtistPage
+@{
+    ViewBag.Title = "Artist";
+    Layout = "~/Views/Shared/_Main.cshtml";
+}
+<div class="grid_8">
+    <p>
+        @Model.SiteText.Single(t => t.Term == "Biography").Value</p>
+    <div class="bio">
+        <img src="@Model.Artist.BioImage?width=400" alt="@Model.Artist.Name" />
+        <h4>@Model.Artist.Name</h4>
+        @Html.Raw(Model.Artist.Bio)<br />
+    </div>
+    <div class="bioThumb">
+        <img src="@Model.Artist.BioImage?width=180" alt="@Model.Artist.Name" />
+    </div>
+</div>
+<div class="grid_4 left">
+    <p>
+        @Model.SiteText.Single(t => t.Term == "Images").Value</p>
+    <div class="works">
+        <div id="thumbs">
+            @for (int i = 1; i <= Model.Images.Count; i++)
+            {
+                <div id="@(i)" class="thumb">
+                    <img src="@Model.Images[i - 1].Thumb?maxwidth=60&maxheight=60" />
+                </div>
+            }
+        </div>
+    </div>
+    <div class="worksFull">
+        <div>
+            @for (int i = 0; i < Model.Images.Count; i++)
+            {
+            <div class="fullImage" id="img_@(i+1)" style="display:none">
+                <img src="@Model.Images[i].Normal?maxwidth=740&maxheight=600" />
+                <div class="description">
+                    @Model.Images[i].Description
+                </div>
+            </div>
+            }
+        </div>
+        <div id="hThumbs">
+            @for (int i = 1; i <= Model.Images.Count; i++)
+            {
+                <div id="@(i)" class="thumbHorizontal">
+                    <img src="@Model.Images[i - 1].Thumb?maxwidth=60&maxheight=60" />
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<div class="clear">
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var totalImages = @(Model.Images.Count);
+
+        $(".thumb").click(function () {
+            var id = $(this).attr("id");
+            $(".bio, .works").fadeOut("fast", function () {
+                $('.grid_8').animate({
+                    width: '180px'
+                }, 1000, function () {
+                    $(".bioThumb").fadeIn("slow");
+                });
+                $('.grid_4').animate({
+                    width: '740px'
+                }, 1000, function () {
+                    $(".active").css("display", "none").removeClass("active");
+                    $("#img_" + id.toString()).show(0, function () {
+                        $("#img_" + id.toString()).css("display", "block").addClass("active");
+                    });
+                    $(".worksFull").fadeIn("slow");
+                });
+            });
+        });
+
+        $(".bioThumb").click(function () {
+            $(".bioThumb, .worksFull").fadeOut("fast", function () {
+                $('.grid_4').animate({
+                    width: '300px'
+                }, 1000, function () {
+                    $(".works").fadeIn("slow");
+                });
+                $('.grid_8').animate({
+                    width: '620px'
+                }, 1000, function () {
+                    $(".bio").fadeIn("slow");
+                });
+            });
+        });
+
+        $(".thumbHorizontal").click(function () {
+            var id = $(this).attr("id");
+            $(".active").fadeOut("slow", function () {
+                $(".active").css("display", "none").removeClass("active");
+                $("#img_" + id.toString()).fadeIn("slow", function () {
+                    $("#img_" + id.toString()).css("display", "block").addClass("active");
+                });
+            });
+            $(this).scroll();
+        });
+
+        $(".fullImage").click(function () {
+            var id = parseInt($(this).attr("id").substr(4));
+            var nextId = id + 1;
+            if (id == parseInt(totalImages)) {
+                nextId = 1;
+            }
+            $(".active").fadeOut("slow", function () {
+                $(".active").css("display", "none").removeClass("active");
+                $("#img_" + nextId.toString()).fadeIn("slow", function () {
+                    $("#img_" + nextId.toString()).css("display", "block").addClass("active");
+                });
+            });
+        });
+    });
+</script>

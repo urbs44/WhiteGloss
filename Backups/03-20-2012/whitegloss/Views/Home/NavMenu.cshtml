@@ -1,0 +1,12 @@
+﻿@model WhiteGloss.Models.Menu      
+            <div id="menu">
+                <a>@(Model.MenuText)</a>
+            </div>
+            <div id="nav">   
+                <div id="links">
+                @foreach (var item in Model.MenuItems)
+                {
+                    <a href="/Home/@item.Term">@(item.Value)</a> 
+                }
+                </div>
+            </div>

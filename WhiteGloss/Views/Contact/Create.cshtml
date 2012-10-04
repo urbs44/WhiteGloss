@@ -1,0 +1,48 @@
+﻿@model WhiteGloss.Models.ContactPage
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm("Create", "Contact", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>ContactPage</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Text)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Text)
+            @Html.ValidationMessageFor(model => model.Text)
+        </div>
+
+        <div class="editor-label">
+            Upload Map Image
+        </div>
+        <input id="mapFileUpload" name="files" type="file" />
+
+        <div class="editor-label">
+            Upload Gallery Image
+        </div>
+        <input id="galleryFileUpload" name="files" type="file" />
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to Admin", "Index", "Admin")
+</div>
+
+<script type="text/javascript">
+    $("#Text").ckeditor();
+</script>

@@ -1,0 +1,202 @@
+﻿body
+{
+    background: #fff;
+    color: #333;
+    font-size: 12px;
+    height: auto;
+    padding-bottom: 20px;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+a:hover
+{
+    text-decoration: none;
+}
+
+h1
+{
+    font-weight: normal;
+    text-align: center;
+    text-transform: uppercase;
+    opacity:0.5;
+    filter:alpha(opacity=50);
+    position: absolute;
+    width: 960px;
+    top: 60px;
+}
+
+h1 a
+{
+    color: #000;
+}
+
+h2
+{
+    padding-top: 20px;
+    text-align: center;
+}
+
+h3
+{
+    font-size: 1.6em;
+}
+
+h4
+{
+    padding-top: 20px;
+    font-size: 1.2em;
+    color: #888;
+}
+
+p
+{
+    overflow: hidden;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.left p
+{
+    text-align: left !important;
+}
+
+.center p
+{
+    text-align: center !important;
+}
+
+.right p
+{
+    text-align: right !important;
+}
+
+#nav, #menu
+{
+    margin: 20px 20px 120px 20px;
+    font-weight: bold;
+}
+
+#nav 
+{
+    display: none;
+}
+
+#nav a 
+{
+    padding: 0 20px;
+    color: #666 !important;
+}
+
+#nav a:hover
+{
+    color: #000 !important;
+}
+
+.centered 
+{
+    text-align: center !important;
+}
+
+.enter
+{
+    padding: 0;
+}
+
+.enterPage
+{
+    display: none;
+    height: 600px;
+    opacity:0.5;
+    filter:alpha(opacity=50);
+}
+
+.enter a:hover
+{
+    color: #000 !important;
+}
+
+.enter a
+{
+    color: #000 !important;
+    font-size: 2.4em;
+}
+
+.artistsCenter 
+{
+    margin: 0 auto;
+}
+
+.grid_3 
+{
+    opacity:0.5;
+    filter:alpha(opacity=50);
+}
+
+.grid_8 p
+{
+    text-align: left !important;
+}
+
+.grid_12
+{
+    text-align: center !important;
+}
+
+#thumbs {
+    font-size: 9px;
+    top: 40px;
+    width: 300px;
+}
+
+.thumb {
+    float: left;
+    padding: 2px;
+    height: 60px;
+    width: 60px;
+}
+
+.bioThumb 
+{
+    opacity:0.4;
+    filter:alpha(opacity=40);
+}
+
+.fullImage 
+{
+    cursor: pointer;
+}
+
+.thumb img, .thumbHorizontal img, .bioThumb img {
+    cursor: pointer;
+    display: block;
+}
+
+.description 
+{
+    padding: 10px 0;
+}
+
+.thumbHorizontal 
+{
+    float: left;
+    padding: 0 10px 0 0;
+}
+
+.worksFull, .bioThumb 
+{
+    display:none;
+}
+
+.caps 
+{
+    text-transform: uppercase;
+}
+
+#calendar 
+{
+    margin-top: 160px;
+}

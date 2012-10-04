@@ -1,0 +1,40 @@
+﻿@model WhiteGloss.Models.Image
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Image</legend>
+
+    <div class="display-label">Artist</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Artist.Name)
+    </div>
+
+    <div class="display-label">Thumbnail</div>
+    <div class="display-field">
+        <a href="@Model.Thumb"><img src="@Model.Thumb?maxwidth=100&maxheight=100" /></a>
+    </div>
+
+    <div class="display-label">Image</div>
+    <div class="display-field">
+        <a href="@Model.Normal"><img src="@Model.Normal?maxwidth=100&maxheight=100" /></a>
+    </div>
+
+    <div class="display-label">Description</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">Created Date</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CreatedDate)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ImageId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
