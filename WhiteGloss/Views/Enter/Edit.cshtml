@@ -15,8 +15,9 @@
     @Html.ValidationSummary(true)
     <fieldset>
         <legend>EnterPage</legend>
-
+        
         @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.Image)
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Text)

@@ -1,0 +1,55 @@
+﻿@model WhiteGloss.Models.Artist
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Artist</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">Home Page Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HomePageName)
+    </div>
+
+    <div class="display-label">Bio</div>
+    <div class="display-field">
+        @Html.Raw(Model.Bio)
+    </div>
+
+    <div class="display-label">Bio Image</div>
+    <div class="display-field">        
+        <a href="@Model.BioImage"><img src="@Model.BioImage?maxwidth=100&maxheight=100" /></a>
+    </div>
+
+    <div class="display-label">Home Image</div>
+    <div class="display-field">        
+        <a href="@Model.HomePageImage"><img src="@Model.HomePageImage?maxwidth=100&maxheight=100" /></a>
+    </div>
+
+    <div class="display-label">Display Order</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DisplayOrder)
+    </div>
+
+    <div class="display-label">Active</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Active)
+    </div>
+
+    <div class="display-label">Created Date</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CreatedDate)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ArtistId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

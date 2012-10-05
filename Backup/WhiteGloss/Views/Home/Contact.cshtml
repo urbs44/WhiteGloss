@@ -1,0 +1,20 @@
+﻿@model WhiteGloss.Models.ContactPage
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Main.cshtml";
+}
+<div class="grid_6 centered">
+<!-- Google Maps Element Code -->
+<!-- Google Maps Element Code -->
+<!-- Google Maps Element Code -->
+<iframe frameborder=0 marginwidth=0 marginheight=0 border=0 style="border:0;margin:0;width:400px;height:375px;" src="http://www.google.com/uds/modules/elements/mapselement/iframe.html?maptype=roadmap&latlng=34.048347%2C-118.249225&mlatlng=34.048347%2C-118.249225&maddress1=433%20S%20Spring%20St&maddress2=Los%20Angeles%2C%20CA%2090013&zoom=13&mtitle=White%20Gloss&element=true" scrolling="no" allowtransparency="true"></iframe>
+</div>
+<div class="grid_6 centered">
+    <img src="@Model.GalleryImage?width=400" />
+</div>
+<div class="grid_12">
+    @Html.Raw(Model.Text)
+</div>
+<div class="grid_12">
+    <a href="http://www.galleryrow.org/portfolio/white-gloss/" target="_blank"><img src="/Content/images/GalleryRow_Grey.jpg?width=300" /></a>
+</div>

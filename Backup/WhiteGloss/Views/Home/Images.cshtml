@@ -1,0 +1,65 @@
+﻿@model WhiteGloss.Models.ArtistPage
+@{
+    ViewBag.Title = "Images";
+    Layout = "~/Views/Shared/_Main.cshtml";
+}
+<div class="grid_4 left">
+    <div>
+        <p>
+            @Html.ActionLink("Back", "Artist", new { id = Model.Artist.ArtistId })
+        </p>
+    </div>
+    <div id="thumbs">
+    @foreach (var image in Model.Images)
+    {
+        <div id="@image.ImageId" class="thumb">
+            <img src="@image.Thumb?maxwidth=60&maxheight=60" />
+            @image.ImageId
+        </div>
+    }
+    </div>
+</div>
+<div class="grid_8">
+    <div id="detail">
+    @for (int i = 0; i < Model.Images.Count; i++)
+    {
+        if (i == 0)
+        {
+        <div id="img_@(Model.Images[i].ImageId)" class="active">
+            <img src="@Model.Images[i].Normal?width=500" />
+            <div>
+                @Model.Images[i].Description
+            </div>
+        </div>
+        }
+        else
+        {
+        <div id="img_@(Model.Images[i].ImageId)" class="hidden">
+            <img src="@Model.Images[i].Normal?width=500" />
+            <div>
+                @Model.Images[i].Description
+            </div>
+        </div>
+        }
+    }
+    </div>
+</div>
+<div class="clear">
+</div>
+<div>
+    <p>
+        @Html.ActionLink("Back to Home", "Gallery", "Home")
+    </p>
+</div>
+
+<script type="text/javascript">
+    $(".thumb").click(function () {
+        var id = $(this).attr("id");
+        $(".active").fadeOut("slow", function () {
+            $(".active").addClass("hidden").removeClass("active");
+            $("#img_" + id.toString()).fadeIn("slow", function () {
+                $("#img_" + id.toString()).removeClass("hidden").addClass("active");
+            });
+        });
+    });
+</script>

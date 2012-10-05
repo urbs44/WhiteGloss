@@ -1,0 +1,30 @@
+﻿@model WhiteGloss.Models.ArtistPage
+@{
+    ViewBag.Title = "Artist";
+    Layout = "~/Views/Shared/_Main.cshtml";
+}
+<div class="grid_4 left">
+    <h3>@Model.Artist.Name</h3>
+    <p>
+        @Model.Artist.Description<br />
+    </p>
+@*    <p>
+        <a href="/Home/Images/@Model.Artist.ArtistId">View Images</a><br />
+        <a href="/Home/Bio/@Model.Artist.ArtistId">Artist Info</a><br />
+    </p>*@
+</div>
+<div class="grid_8">
+    <a href="/Home/Images/@Model.Artist.ArtistId">
+        <img src="@Model.Artist.ImagePath" alt="@Model.Artist.Name" /></a>
+    <h4>@Model.Artist.Name</h4>
+    <p>
+        @Model.Artist.Bio<br />
+    </p>
+</div>
+<div class="clear">
+</div>
+<div>
+    <p>
+        @Html.ActionLink("Back to Home", "Gallery", "Home")
+    </p>
+</div>

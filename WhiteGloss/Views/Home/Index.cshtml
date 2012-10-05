@@ -9,11 +9,14 @@
         <a href="/Home/Gallery/">
             <img id="enterImage" src="@Model.Image?width=@(Model.Width)&height=@(Model.Height)" /></a>
     </div>
+    @if (!String.IsNullOrEmpty(Model.Text))
+    {
     <div class="clear"></div>
     <br />
     <div class="grid_12 enter">
         <a href="/Home/Gallery/">@Model.Text</a>
     </div>
+    }
 </div>
 <script type="text/javascript">
     $(window).load(function () {

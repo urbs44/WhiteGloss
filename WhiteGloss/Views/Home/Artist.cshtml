@@ -29,7 +29,7 @@
             @for (int i = 1; i <= Model.Images.Count; i++)
             {
                 <div id="@(i)" class="thumb">
-                    <img src="@Model.Images[i - 1].Thumb?width=60&height=60&stretch=fill&scale=both" />
+                    <img src="@Model.Images[i - 1].Thumb?width=60&height=60&mode=crop" />
                 </div>
             }
         </div>

@@ -1,0 +1,79 @@
+﻿@model WhiteGloss.Models.Artist
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Artists</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm("Create", "Artists", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>New Artist</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.HomePageName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.HomePageName)
+            @Html.ValidationMessageFor(model => model.HomePageName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Bio)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Bio)
+            @Html.ValidationMessageFor(model => model.Bio)
+        </div>
+
+        <div class="editor-label">
+            Upload Bio Image - 500px Wide
+        </div>
+        <input id="bioFileUpload" name="files" type="file" />
+
+        <div class="editor-label">
+            Upload HomePage Image - 220px Wide
+        </div>
+        <input id="homeFileUpload" name="files" type="file" />
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DisplayOrder)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DisplayOrder)
+            @Html.ValidationMessageFor(model => model.DisplayOrder)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Active)
+        </div>
+        <div class="editor-field">
+            @Html.CheckBoxFor(model => model.Active)
+            @Html.ValidationMessageFor(model => model.Active)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to Artists", "Index")
+</div>
+<script type="text/javascript">
+    $("#Bio").ckeditor();
+</script>

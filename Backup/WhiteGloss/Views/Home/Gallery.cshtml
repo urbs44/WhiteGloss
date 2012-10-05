@@ -1,0 +1,47 @@
+﻿@model WhiteGloss.Models.HomePage
+@{
+    ViewBag.Title = "White Gloss";
+    Layout = "~/Views/Shared/_Main.cshtml";
+}
+<div class="grid_12">
+    <div class="artistsCenter">
+        @{
+        int x = 1;
+        foreach (var artist in Model.Artists)
+        {
+        if (x == 5) { 
+        <div class="clear"></div>
+            x = 1;
+        }
+        <div class="grid_3">
+            <a href="/Home/Artist/@artist.ArtistId">
+                <img src="@artist.HomePageImage?width=220" alt="@artist.HomePageName" /></a>
+            <p>
+                @artist.HomePageName<br />
+            </p>
+        </div>
+        x++;
+        }
+        }
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var w = parseInt(@(Model.Artists.Count)) * 240;
+        $(".artistsCenter").width(w);
+    });
+    $(window).load(function () {
+        $(".grid_3").hover(
+                function () {
+                    $(this).animate({
+                        opacity: 1.0
+                    });
+                },
+                function () {
+                    $(this).animate({
+                        opacity: 0.5
+                    });
+                }
+            );
+    });
+</script>

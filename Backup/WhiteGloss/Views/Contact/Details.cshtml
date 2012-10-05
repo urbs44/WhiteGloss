@@ -1,0 +1,30 @@
+﻿@model WhiteGloss.Models.ContactPage
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>ContactPage</legend>
+
+    <div class="display-label">Text</div>
+    <div class="display-field">
+        @Html.Raw(Model.Text)
+    </div>
+
+    <div class="display-label">Map Image</div>
+    <div class="display-field">        
+        <a href="@Model.MapImage"><img src="@Model.MapImage?maxwidth=100&maxheight=100" /></a>
+    </div>
+
+    <div class="display-label">Gallery Image</div>
+    <div class="display-field">        
+        <a href="@Model.GalleryImage"><img src="@Model.GalleryImage?maxwidth=100&maxheight=100" /></a>
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to Admin", "Index", "Admin")
+</p>

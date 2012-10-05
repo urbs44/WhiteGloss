@@ -109,7 +109,7 @@ p
 .enterPage
 {
     display: none;
-    height: 600px;
+    height: auto;
     opacity:0.5;
     filter:alpha(opacity=50);
 }

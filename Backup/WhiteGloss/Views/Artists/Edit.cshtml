@@ -1,0 +1,107 @@
+﻿@model WhiteGloss.Models.Artist
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm("Edit", "Artists", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Artist</legend>
+
+        @Html.HiddenFor(model => model.ArtistId)
+        @Html.HiddenFor(model => model.CreatedDate)
+        @Html.HiddenFor(model => model.BioImage)
+        @Html.HiddenFor(model => model.HomePageImage)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.HomePageName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.HomePageName)
+            @Html.ValidationMessageFor(model => model.HomePageName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Bio)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Bio)
+            @Html.ValidationMessageFor(model => model.Bio)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.BioImage)
+        </div>
+        <div class="editor-field">
+            <img src="@(Model.BioImage)?maxwidth=100&maxheight=100" />
+            <br />
+            @Html.DisplayFor(model => model.BioImage)
+            @Html.ValidationMessageFor(model => model.BioImage)
+        </div>
+
+        <div class="editor-label">
+            Upload New Bio Image - 500px Wide
+        </div>
+
+        <input id="fileUpload1" name="files" type="file" />
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.HomePageImage)
+        </div>
+        <div class="editor-field">
+            <img src="@(Model.HomePageImage)?maxwidth=100&maxheight=100" />
+            <br />
+            @Html.DisplayFor(model => model.HomePageImage)
+            @Html.ValidationMessageFor(model => model.HomePageImage)
+        </div>
+
+        <div class="editor-label">
+            Upload New HomePage Image - 220px Wide
+        </div>
+
+        <input id="fileUpload2" name="files" type="file" />
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DisplayOrder)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DisplayOrder)
+            @Html.ValidationMessageFor(model => model.DisplayOrder)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Active)
+        </div>
+        <div class="editor-field">
+            @Html.CheckBoxFor(model => model.Active)
+            @Html.ValidationMessageFor(model => model.Active)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script type="text/javascript">
+    $("#Bio").ckeditor();
+</script>

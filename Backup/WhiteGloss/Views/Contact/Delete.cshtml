@@ -1,0 +1,33 @@
+﻿@model WhiteGloss.Models.ContactPage
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>ContactPage</legend>
+
+    <div class="display-label">Text</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Text)
+    </div>
+
+    <div class="display-label">MapImage</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MapImage)
+    </div>
+
+    <div class="display-label">GalleryImage</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GalleryImage)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+    @Html.ActionLink("Back to Admin", "Index", "Admin")
+    </p>
+}
